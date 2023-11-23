@@ -1,7 +1,7 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 #include "Bureaucrat.hpp"
-
+class Bureaucrat ;
 class Form{
 	private :
 	const std::string _name;
@@ -16,9 +16,11 @@ class Form{
 	public :
 	Form();
 	~Form();
-	Form(std::string name, int gradeToSign, int gradeToExecute);
+	Form(const std::string& name, int gradeToSign);
+	Form( const std::string name, int gradeToSign, int gradeToExecute);
 	Form(const Form &copy);
 	Form &operator=(const Form &copy);
+	void        beSigned( const Bureaucrat& bureaucrat );
 	 std::string getName() const;
 	 bool getIsSigned() const;
 	 int getGradeToSign()const;
@@ -32,7 +34,8 @@ class Form{
             public:
                 virtual const char *what() const throw();
         };
-	void beSigned(const Bureaucrat &bureaucrat);
+
 
 };
+std::ostream&   operator<<( std::ostream& o, const Form& rhs );
 #endif

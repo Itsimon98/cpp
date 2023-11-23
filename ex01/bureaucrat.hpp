@@ -1,6 +1,8 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 #include <iostream>
+#include "Form.hpp"
+class Form;
 class Bureaucrat
 {
 	private :
@@ -11,6 +13,7 @@ class Bureaucrat
 	~Bureaucrat();
 	Bureaucrat(std::string _name, int _grade);
 	Bureaucrat(Bureaucrat const &copy);
+	void signForm( Form& form );
 
 
 	 Bureaucrat	&operator=(Bureaucrat const &copy);
